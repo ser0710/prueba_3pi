@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const notFoundError = require("../errors/notFound")
 
 class usersRepository{
     constructor(){
@@ -42,13 +43,30 @@ class usersRepository{
             SELECT u.*, r.name_r AS role_name 
             FROM users u 
             LEFT JOIN roles r ON u.roles_id = r.id
-          `;
+            `;
             const listU = await connection.query(query);
             connection.release();
             console.log(listU.rows)
             return listU.rows;
         } catch(error){
             throw new Error('error' + error.message);
+        }
+    }
+
+    async deleteUser(user){
+        try{
+            const connection = await this.pool.connect();
+            const query = 
+            `DELETE FROM users
+            WHERE id = '${user}'
+            RETURNING *
+            `;
+            const result = await connection.query(query);
+            if (result.rowCount === 0){
+                throw new notFoundError('Usuario no encontrado', 404);
+            }
+        }catch(error){
+            throw new notFoundError('Usuario no encontrado', 404);
         }
     }
 

@@ -12,5 +12,6 @@ const usersController = new UsersController(usersService);
 router.post('/api/v1/roles', usersController.createRole.bind(usersController));
 router.post('/api/v1/users', usersController.createUser.bind(usersController));
 router.get('/api/v1/users', usersController.listUsers.bind(usersController));
+router.delete('/api/v1/users/:userId', usersController.deleteUser.bind(usersController));
 
 module.exports = router;

@@ -57,6 +57,14 @@ class usersService{
             throw new Error('error' + error.message);
         }
     }
+
+    async deleteUser(user){
+        try{
+            await this.usersRepository.deleteUser(user);
+        }catch(error){
+            throw new Error(error.message);
+        }
+    }
 }
 
 module.exports = usersService;

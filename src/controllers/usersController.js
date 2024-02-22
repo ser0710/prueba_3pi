@@ -33,6 +33,16 @@ class usersController {
         }
     }
 
+    async deleteUser(req, res){
+        try{
+            const userId = req.params.userId;
+            await this.usersService.deleteUser(userId);
+            res.status(200).json({ message: 'Usuario eliminado' });
+        } catch(error){
+            res.status(404).json({ error: error.message });
+        }
+    }
+
 }
 
 module.exports = usersController;
