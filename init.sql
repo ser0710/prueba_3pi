@@ -7,7 +7,7 @@ CREATE TABLE products (
 
 CREATE TABLE roles (
     id VARCHAR(40) PRIMARY KEY,
-    name_r VARCHAR(30)
+    name_r VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE users (
