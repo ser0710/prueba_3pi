@@ -14,6 +14,16 @@ class usersController {
         }
     }
 
+    async createUser(req, res){
+        try{
+            const user = req.body;
+            await this.usersService.createUser(user);
+            res.status(201).json({ message: 'Usuario creado' });
+        } catch(error){
+            res.status(500).json({ error: error.message });
+        }
+    }
+
 }
 
 module.exports = usersController;

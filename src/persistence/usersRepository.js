@@ -23,6 +23,18 @@ class usersRepository{
         }
     }
 
+    async createUser(user){
+        try{
+            const connection = await this.pool.connect();
+            const query = 'INSERT INTO users VALUES ($1, $2, $3, $4)';
+            const values = [user.document, user.id, user.last_name, user.name];
+            await connection.query(query, values);
+            connection.release();
+        } catch(error){
+            throw new Error('error' + error.message);
+        }
+    }
+
 }
 
 

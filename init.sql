@@ -11,10 +11,10 @@ CREATE TABLE roles (
 );
 
 CREATE TABLE users (
-    document VARCHAR(20),
+    document VARCHAR(20) NOT NULL,
     id VARCHAR(40) PRIMARY KEY,
-    last_name VARCHAR(30),
-    name_u VARCHAR(30),
+    last_name VARCHAR(30) NOT NULL,
+    name_u VARCHAR(30) NOT NULL,
     roles_id VARCHAR(40) REFERENCES roles(id)
 );
 

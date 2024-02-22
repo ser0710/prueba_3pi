@@ -1,6 +1,6 @@
 const Role = require("../entities/roles")
 const emptyError = require("../errors/emptyError")
-
+const User = require("../entities/users");
 
 class usersService{
     constructor(usersRepository){
@@ -23,6 +23,29 @@ class usersService{
             await this.usersRepository.createRole(newRole);
         }catch(error){
             throw new Error('el nombre del rol no puede ser nulo');
+        }
+    }
+
+    async createUser(user){
+        var errors = [];
+        for (var prop in user) {
+            if(user[prop] === ""){
+                errors.push(prop);
+            }
+            if(user[prop]){
+                if(user[prop].trim().length === 0){
+                    errors.push(prop);
+                } 
+            }
+        }
+        if(errors.length > 0){
+            throw new emptyError(`El ${errors} del usuario no puede ser vacio`, 500)
+        }
+        const newUser = new User(user.document, null, user.last_name, user.name);
+        try{
+            await this.usersRepository.createUser(newUser);
+        }catch(error){
+            throw new Error(error.message);
         }
     }
 }
