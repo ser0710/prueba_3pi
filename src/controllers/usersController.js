@@ -24,6 +24,15 @@ class usersController {
         }
     }
 
+    async listUsers(req, res){
+        try{
+            const result = await this.usersService.listUsers();
+            res.status(200).json(result);
+        }catch(error){
+            res.status(500).json({ error: error.message });
+        }
+    }
+
 }
 
 module.exports = usersController;

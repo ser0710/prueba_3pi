@@ -35,6 +35,23 @@ class usersRepository{
         }
     }
 
+    async listUsers(){
+        try{
+            const connection = await this.pool.connect();
+            const query = `
+            SELECT u.*, r.name_r AS role_name 
+            FROM users u 
+            LEFT JOIN roles r ON u.roles_id = r.id
+          `;
+            const listU = await connection.query(query);
+            connection.release();
+            console.log(listU.rows)
+            return listU.rows;
+        } catch(error){
+            throw new Error('error' + error.message);
+        }
+    }
+
 }
 
 

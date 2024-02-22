@@ -29,7 +29,7 @@ class productRepository{
             const query = 'SELECT * FROM products';
             const listP = await connection.query(query);
             connection.release();
-            return listP.rows
+            return listP.rows;
         }catch(error){
             throw new Error('error' + error.message);
         }

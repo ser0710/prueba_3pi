@@ -41,11 +41,20 @@ class usersService{
         if(errors.length > 0){
             throw new emptyError(`El ${errors} del usuario no puede ser vacio`, 500)
         }
-        const newUser = new User(user.document, null, user.last_name, user.name);
+        const newUser = new User(user.document, null, user.last_name, user.name, null);
         try{
             await this.usersRepository.createUser(newUser);
         }catch(error){
             throw new Error(error.message);
+        }
+    }
+
+    async listUsers(){
+        try{
+            var listUsers = await this.usersRepository.listUsers();
+            return listUsers.map(data => new User(data.document, data.id, data.last_name, data.name_u, data.role_name))
+        } catch(error){
+            throw new Error('error' + error.message);
         }
     }
 }
