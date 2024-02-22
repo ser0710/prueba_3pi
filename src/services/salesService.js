@@ -1,3 +1,5 @@
+const sale = require("../entities/sales")
+
 class salesService{
     constructor(salesRepository){
         this.salesRepository = salesRepository;
@@ -5,7 +7,7 @@ class salesService{
     }
 
     addSale(sale){
-        return "";
+        const newSale = new sale();
     }
 }
 
