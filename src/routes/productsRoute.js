@@ -10,5 +10,6 @@ const productService = new ProductService(productRepository);
 const productController = new ProductController(productService);
 
 router.post('/api/v1/product', productController.createProduct.bind(productController));
+router.get('/api/v1/product', productController.listProducts.bind(productController));
 
 module.exports = router;

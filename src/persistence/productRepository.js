@@ -21,7 +21,19 @@ class productRepository{
         } catch(error){
             throw new Error('error' + error.message);
         }
-    }   
+    }
+    
+    async listProducts(){
+        try{
+            const connection = await this.pool.connect();
+            const query = 'SELECT * FROM products';
+            const listP = await connection.query(query);
+            connection.release();
+            return listP.rows
+        }catch(error){
+            throw new Error('error' + error.message);
+        }
+    }
 }
 
 
