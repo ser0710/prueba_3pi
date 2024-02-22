@@ -43,6 +43,17 @@ class usersController {
         }
     }
 
+    async addUserRole(req, res){
+        try{
+            const userId = req.params.userId;
+            const roleId = req.params.roleId;
+            await this.usersService.addUserRole(userId, roleId);
+            res.status(200).json({ message: 'Rol asignado' });
+        }catch(error){
+            res.status(404).json({ error: error.message });
+        }
+    }
+
 }
 
 module.exports = usersController;

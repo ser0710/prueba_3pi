@@ -65,6 +65,15 @@ class usersService{
             throw new Error(error.message);
         }
     }
+
+    async addUserRole(userId, roleId){
+        try{
+            await this.usersRepository.addUserRole(userId, roleId);
+        }catch(error){
+            throw new Error(error.message);
+        }
+
+    }
 }
 
 module.exports = usersService;

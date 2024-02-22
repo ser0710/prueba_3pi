@@ -70,6 +70,39 @@ class usersRepository{
         }
     }
 
+    async addUserRole(userId, roleId){
+        console.log(userId)
+        var errors = [];
+        try{
+            const connection = await this.pool.connect();
+            const userQuery = 'SELECT * FROM users WHERE id = $1';
+            const resultU = await connection.query(userQuery, [userId]);
+            const user = resultU.rows[0];
+            if(!user){
+                console.log("entro primer if")
+                errors.push("usuario");
+            }
+
+            const roleQuery = 'SELECT * FROM roles WHERE id = $1';
+            const resultR = await connection.query(roleQuery, [roleId]);
+            const role = resultR.rows[0];
+            if(!role){
+                errors.push("rol");
+            }
+            if(errors.length > 0){
+                throw new notFoundError(errors + "no encontrado")
+            }
+
+            const Fquery = 'UPDATE users SET roles_id = $1 WHERE id = $2';
+            await connection.query(Fquery, [roleId, userId])
+            
+
+        }catch(error){
+            console.log(errors)
+            throw new notFoundError(`${errors} no encontrado`);
+        }
+    }
+
 }
 
 
