@@ -1,5 +1,6 @@
 const priceError = require("../errors/priceError")
 const Product = require("../entities/products")
+const emptyError = require("../errors/emptyError")
 
 class productService{
     constructor(productRepository){
@@ -8,8 +9,22 @@ class productService{
     }
 
     async createProduct(product){
-        if(product.price < 0){
-            throw new priceError('precio no valido', 500)
+        var errors = [];
+        for (var prop in product) {
+            if(product[prop] === ""){
+                errors.push(prop);
+            }
+            if(product[prop] && typeof product[prop] !== 'number'){
+                if(product[prop].trim().length === 0){
+                    errors.push(prop);
+                } 
+            }
+            if(typeof product[prop] === 'number' && product[prop]<0){
+                throw new priceError('precio no valido', 500)
+            }
+        }
+        if(errors.length > 0){
+            throw new emptyError(`El ${errors} no puede ser vacio`, 500)
         }
         const newProduct = new Product(null, product.description, product.name, product.price);
         try{

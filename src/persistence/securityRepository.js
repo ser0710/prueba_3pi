@@ -18,9 +18,8 @@ class securityRepository{
                             FROM users u
                             JOIN roles r ON u.roles_id = r.id
                             WHERE u.id = '${userId}'
-                            AND r.name_r = 'admin2';`
+                            AND r.name_r = 'admin';`
             const result = await connection.query(query)
-            console.log(result.rows)
             connection.release();
             return result;
             

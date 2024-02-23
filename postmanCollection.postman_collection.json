@@ -1,0 +1,1325 @@
+{
+	"info": {
+		"_postman_id": "278f2629-7448-4bc1-b0e9-01c25275ad7e",
+		"name": "postmanCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "createAProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"docena\",\r\n    \"name\": \"banano\",\r\n    \"price\": 1500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/product",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createAProduct",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"docena\",\r\n    \"name\": \"banano\",\r\n    \"price\": 1500\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/product",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"product"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Producto creada\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createAProductError",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"     \",\r\n    \"name\": \"\",\r\n    \"price\": 1500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/product",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createAProductError",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"     \",\r\n    \"name\": \"\",\r\n    \"price\": 1500\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/product",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"product"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"El description,name no puede ser vacio\"\n}"
+						}
+					]
+				},
+				{
+					"name": "listProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/product",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listProducts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/product",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"479fba0a-baaf-4b46-95a2-83a663817646\",\n        \"des\": \"Libra\",\n        \"name\": \"Arroz\",\n        \"price\": 3000\n    },\n    {\n        \"id\": \"efbff7f6-6374-4c2f-9c96-3611c65068ba\",\n        \"des\": \"Libra\",\n        \"name\": \"Papas\",\n        \"price\": 1000\n    },\n    {\n        \"id\": \"f7c377cf-0f92-435a-b5e6-2c8cdd9d10c6\",\n        \"des\": \"500 ml\",\n        \"name\": \"Agua sin gas\",\n        \"price\": 2000\n    },\n    {\n        \"id\": \"3bed5d90-64ed-4bc1-8a3a-a378737ed542\",\n        \"des\": \"500 ml\",\n        \"name\": \"Agua con gas\",\n        \"price\": 2500\n    },\n    {\n        \"id\": \"c3f25f98-c5c3-4a00-b550-f716ae36b25f\",\n        \"des\": \"ministro de haciendo aprueba\",\n        \"name\": \"Docena de huevos\",\n        \"price\": 1800\n    },\n    {\n        \"id\": \"398c1941-3cfb-46ae-8728-7c555debd170\",\n        \"des\": \"docena\",\n        \"name\": \"banano\",\n        \"price\": 1500\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "createARole",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"empleado 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/roles",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createARole",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"empleado 1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/roles",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"roles"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Rol creado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createARoleError",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/roles",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createARoleError",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/roles",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"roles"
+									],
+									"query": [
+										{
+											"key": "auth",
+											"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"El rol debe tener un nombre valido\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createAUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"2222222\",\r\n    \"last_name\": \"diaz\",\r\n    \"name\": \"sara\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createAUser",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"document\": \"2222222\",\r\n    \"last_name\": \"diaz\",\r\n    \"name\": \"sara\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Usuario creado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createAUserError",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"\",\r\n    \"last_name\": \" \",\r\n    \"name\": \"dddddd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createAUserError",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"document\": \"\",\r\n    \"last_name\": \" \",\r\n    \"name\": \"dddddd\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"El document,last_name del usuario no puede ser vacio\"\n}"
+						}
+					]
+				},
+				{
+					"name": "listUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listUsers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/v1/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"document\": \"111111\",\n        \"id\": \"28fc5a97-5643-42ac-9863-5df1442e4f3f\",\n        \"last_name\": \"torres\",\n        \"name\": \"pablo\",\n        \"r_name\": \"admin\"\n    },\n    {\n        \"document\": \"2222222\",\n        \"id\": \"e16411e7-58d2-46b5-9d46-669f02dea37b\",\n        \"last_name\": \"diaz\",\n        \"name\": \"sara\",\n        \"r_name\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "deleteAUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/v1/users/e16411e7-58d2-46b5-9d46-669f02dea37b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"e16411e7-58d2-46b5-9d46-669f02dea37b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteAUser",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/v1/users/e16411e7-58d2-46b5-9d46-669f02dea37b",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"e16411e7-58d2-46b5-9d46-669f02dea37b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Usuario eliminado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteAUserError",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/users/63051b9b-6be3-4fe1-8ea3-4341e824d465",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"63051b9b-6be3-4fe1-8ea3-4341e824d465"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteAUserError",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/users/63051b9b-6be3-4fe1-8ea3-4341e824d465",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"63051b9b-6be3-4fe1-8ea3-4341e824d465"
+									],
+									"query": [
+										{
+											"key": "auth",
+											"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Usuario no encontrado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "addUserRole",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/v1/users/e356cdf3-2652-4050-926d-d64544761f91/ef061c52-9b1a-49a8-9dcc-156be4281af5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"e356cdf3-2652-4050-926d-d64544761f91",
+								"ef061c52-9b1a-49a8-9dcc-156be4281af5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "addUserRole",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/v1/users/e356cdf3-2652-4050-926d-d64544761f91/ef061c52-9b1a-49a8-9dcc-156be4281af5",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"e356cdf3-2652-4050-926d-d64544761f91",
+										"ef061c52-9b1a-49a8-9dcc-156be4281af5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Rol asignado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "addUserRoleError",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/v1/users/d811c1dd-cfff-41f3-a4cd-83741530/b38db54f-bb1a-4e25-8a2a-013a35a9f298",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"d811c1dd-cfff-41f3-a4cd-83741530",
+								"b38db54f-bb1a-4e25-8a2a-013a35a9f298"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "addUserRoleError",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/v1/users/d811c1dd-cfff-41f3-a4cd-83741530/b38db54f-bb1a-4e25-8a2a-013a35a9f298",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"d811c1dd-cfff-41f3-a4cd-83741530",
+										"b38db54f-bb1a-4e25-8a2a-013a35a9f298"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"usuario,rol no encontrado\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "sales",
+			"item": [
+				{
+					"name": "createASale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products_id\": \"479fba0a-baaf-4b46-95a2-83a663817646\",\r\n    \"qty\": 6,\r\n    \"users_id\": \"e356cdf3-2652-4050-926d-d64544761f91\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/sales",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"sales"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createASale",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"products_id\": \"479fba0a-baaf-4b46-95a2-83a663817646\",\r\n    \"qty\": 6,\r\n    \"users_id\": \"e356cdf3-2652-4050-926d-d64544761f91\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/sales",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"sales"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Venta creada\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createASaleError",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products_id\": \"479fba0a-baaf-4b46-95a2-83a663817646\",\r\n    \"qty\": 6,\r\n    \"users_id\": \"d811c1dd-cfff-41f3-a4cd-837\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/sales",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"sales"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createASaleError",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"products_id\": \"479fba0a-baaf-4b46-95a2-83a663817646\",\r\n    \"qty\": 6,\r\n    \"users_id\": \"d811c1dd-cfff-41f3-a4cd-837\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/sales",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"sales"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"usuario no encontrado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "listSales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/sales",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"sales"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listSales",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/sales",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"sales"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"42c4785a-ba8b-41d8-b242-83f6c2e8fa62\",\n        \"prod_id\": \"Arroz\",\n        \"date\": \"2024-02-23T19:16:26.618Z\",\n        \"qty\": 6,\n        \"user_id\": \"sara\",\n        \"total\": 18000\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "deleteSale",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/v1/sales/42c4785a-ba8b-41d8-b242-83f6c2e8fa62",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"sales",
+								"42c4785a-ba8b-41d8-b242-83f6c2e8fa62"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteSale",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/v1/sales/42c4785a-ba8b-41d8-b242-83f6c2e8fa62",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"sales",
+										"42c4785a-ba8b-41d8-b242-83f6c2e8fa62"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Venta eliminada\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteSaleError",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/v1/sales/123b2166-9943-4328-bd7a-723c47df",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"sales",
+								"123b2166-9943-4328-bd7a-723c47df"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteSaleError",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/v1/sales/123b2166-9943-4328-bd7a-723c47df",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"sales",
+										"123b2166-9943-4328-bd7a-723c47df"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Venta no encontrada\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reports",
+			"item": [
+				{
+					"name": "dailyReport",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"day\": \"2024-02-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/reports/daily",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"daily"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "dailyReport",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"day\": \"2024-02-23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/reports/daily",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"reports",
+										"daily"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"total\": 21000\n}"
+						}
+					]
+				},
+				{
+					"name": "monthlyReport",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth",
+								"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"month\": \"2024-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/reports/monthly",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"monthly"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "monthlyReport",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth",
+										"value": "28fc5a97-5643-42ac-9863-5df1442e4f3f",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"month\": \"2024-02\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/reports/monthly",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"reports",
+										"monthly"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"total\": 21000\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -39,3 +39,6 @@ INSERT INTO products (id, name_p, descripti, price) VALUES ('3bed5d90-64ed-4bc1-
 
 INSERT INTO products (id, name_p, descripti, price) VALUES ('c3f25f98-c5c3-4a00-b550-f716ae36b25f','Docena de huevos','ministro de haciendo aprueba',1800);
 
+INSERT INTO roles (id, name_r) VALUES ('db813d6f-f517-40a2-9929-907e89785542' ,'admin');
+
+INSERT INTO users (document, id, last_name, name_u, roles_id) VALUES ('111111', '28fc5a97-5643-42ac-9863-5df1442e4f3f', 'torres', 'pablo', 'db813d6f-f517-40a2-9929-907e89785542');
