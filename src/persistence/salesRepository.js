@@ -21,6 +21,7 @@ class salesRepository{
             const queryS = 'INSERT INTO sales VALUES ($1, $2, $3, $4, $5, $6)';
             const values = [sale.id, sale.prod_id, sale.qty, sale.date, sale.user_id, finalP];
             await connection.query(queryS, values);
+            connection.release();
         }catch(error){
             throw new notFoundError(error.message.includes("users") ? "usuario no encontrado" : "producto no encontrado", 404);
         }
@@ -45,10 +46,26 @@ class salesRepository{
                             users u ON v.users_id = u.id;`;
             const listS = await connection.query(query);
             connection.release();
-            console.log(listS.rows)
             return listS.rows;
         }catch(error){
             throw new Error('error' + error.message);
+        }
+    }
+
+    async deleteSale(saleId){
+        try {
+            const connection = await this.pool.connect();
+            const query = 
+            `DELETE FROM sales
+            WHERE id = '${saleId}'
+            RETURNING *`;
+            const result = await connection.query(query);
+            connection.release();
+            if(result.rowCount === 0){
+                throw new Error();
+            }
+        }catch(error){
+            throw new notFoundError("Venta no encontrada", 404);
         }
     }
 

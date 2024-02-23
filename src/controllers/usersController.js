@@ -39,7 +39,7 @@ class usersController {
             await this.usersService.deleteUser(userId);
             res.status(200).json({ message: 'Usuario eliminado' });
         } catch(error){
-            res.status(404).json({ error: error.message });
+            res.status(error.status).json({ error: error.message });
         }
     }
 

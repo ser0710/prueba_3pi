@@ -61,11 +61,12 @@ class usersRepository{
             RETURNING *
             `;
             const result = await connection.query(query);
+            connection.release();
             if (result.rowCount === 0){
                 throw new notFoundError('Usuario no encontrado', 404);
             }
         }catch(error){
-            throw new notFoundError('Usuario no encontrado', 404);
+            throw new Error(error.message, 500);
         }
     }
 
@@ -94,6 +95,7 @@ class usersRepository{
 
             const Fquery = 'UPDATE users SET roles_id = $1 WHERE id = $2';
             await connection.query(Fquery, [roleId, userId])
+            connection.release();
             
 
         }catch(error){

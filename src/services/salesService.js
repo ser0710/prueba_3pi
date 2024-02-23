@@ -41,6 +41,14 @@ class salesService{
             
         }
     }
+
+    async deleteSale(saleId){
+        try{
+            await this.salesRepository.deleteSale(saleId);
+        }catch(error){
+            throw error;
+        }
+    }
 }
 
 module.exports = salesService;

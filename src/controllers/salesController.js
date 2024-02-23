@@ -20,7 +20,16 @@ class salesController {
         }catch(error){
             res.status(500).json({ error: error.message })
         }
+    }
 
+    async deleteSale(req, res){
+        try{
+            const saleId = req.params.saleId;
+            await this.saleService.deleteSale(saleId);
+            res.status(200).json({ message: 'Venta eliminada' });
+        }catch(error){
+            res.status(error.status).json({ error: error.message });
+        }
     }
 
 }

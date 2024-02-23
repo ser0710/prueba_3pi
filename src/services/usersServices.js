@@ -62,7 +62,7 @@ class usersService{
         try{
             await this.usersRepository.deleteUser(user);
         }catch(error){
-            throw new Error(error.message);
+            throw error;
         }
     }
 
