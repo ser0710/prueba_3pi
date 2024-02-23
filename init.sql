@@ -20,11 +20,11 @@ CREATE TABLE users (
 
 CREATE TABLE sales (
     id VARCHAR(40) PRIMARY KEY,
-    products_id VARCHAR(40) REFERENCES products(id),
-    qty INTEGER,
-    sales_at VARCHAR(30),
-    users_id VARCHAR(40) REFERENCES users(id),
-    total INTEGER
+    products_id VARCHAR(40) NOT NULL REFERENCES products(id),
+    qty INTEGER NOT NULL CHECK (price > 0),
+    sales_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    users_id VARCHAR(40) NOT NULL REFERENCES users(id),
+    total INTEGER NOT NULL CHECK (price > 0)
 );
 
 

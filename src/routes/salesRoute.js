@@ -9,6 +9,6 @@ const salesRepository = new SalesRepository();
 const salesService = new SalesService(salesRepository);
 const salesController = new SalesController(salesService);
 
-router.get('/api/v1/sales', salesController.createSale.bind(salesController));
+router.post('/api/v1/sales', salesController.createSale.bind(salesController));
 
 module.exports = router;
