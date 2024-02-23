@@ -27,6 +27,31 @@ class salesRepository{
 
     }
 
+    async listSales(){
+        try{
+            const connection = await this.pool.connect();
+            const query = `SELECT 
+                            p.name_p AS products_id,
+                            v.sales_at AS date,
+                            v.qty AS qty,
+                            v.id AS id,
+                            v.total AS total,
+                            u.name_u AS users_id
+                        FROM 
+                            sales v
+                        JOIN 
+                            products p ON v.products_id = p.id
+                        JOIN 
+                            users u ON v.users_id = u.id;`;
+            const listS = await connection.query(query);
+            connection.release();
+            console.log(listS.rows)
+            return listS.rows;
+        }catch(error){
+            throw new Error('error' + error.message);
+        }
+    }
+
 }
 
 module.exports = salesRepository;

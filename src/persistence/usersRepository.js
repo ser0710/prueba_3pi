@@ -46,7 +46,6 @@ class usersRepository{
             `;
             const listU = await connection.query(query);
             connection.release();
-            console.log(listU.rows)
             return listU.rows;
         } catch(error){
             throw new Error('error' + error.message);

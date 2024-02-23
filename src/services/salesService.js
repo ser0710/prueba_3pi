@@ -25,11 +25,20 @@ class salesService{
         if(errors.length > 0){
             throw new emptyError(`El ${errors} no puede ser vacio`, 500)
         }
-        const newSale = new Sale(null, sale.products_id, sale.qty, sale.users_id);
+        const newSale = new Sale(null, sale.products_id, sale.qty, sale.users_id, null, null);
         try{
             await this.salesRepository.createSale(newSale);
         }catch(error){
             throw error;
+        }
+    }
+
+    async listSales(){
+        try{
+            var listSales = await this.salesRepository.listSales();
+            return listSales.map(data => new Sale(data.id, data.products_id, data.qty, data.users_id, data.total, data.date));
+        } catch(error){
+            
         }
     }
 }

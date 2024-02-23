@@ -10,5 +10,6 @@ const salesService = new SalesService(salesRepository);
 const salesController = new SalesController(salesService);
 
 router.post('/api/v1/sales', salesController.createSale.bind(salesController));
+router.get('/api/v1/sales', salesController.listSales.bind(salesController));
 
 module.exports = router;
