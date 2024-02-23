@@ -17,6 +17,5 @@ app.use(ReportsRoute);
 
 app.listen(3000, () => {
     console.log("running");
-    console.log(uuid.v4());
 })
 

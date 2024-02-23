@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const emptyError = require('../errors/emptyError')
 
 class productRepository{
     constructor(){
@@ -19,7 +20,7 @@ class productRepository{
             await connection.query(query, values);
             connection.release();
         } catch(error){
-            throw new Error('error' + error.message);
+            throw new emptyError("los datos no pueden ser vacios", 500);
         }
     }
     

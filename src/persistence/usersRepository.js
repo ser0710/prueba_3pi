@@ -1,5 +1,6 @@
 const { Pool } = require('pg');
 const notFoundError = require("../errors/notFound")
+const emptyError = require('../errors/emptyError');
 
 class usersRepository{
     constructor(){
@@ -32,7 +33,7 @@ class usersRepository{
             await connection.query(query, values);
             connection.release();
         } catch(error){
-            throw new Error('error' + error.message);
+            throw new emptyError("los datos no pueden ser vacios", 500);
         }
     }
 
@@ -63,10 +64,10 @@ class usersRepository{
             const result = await connection.query(query);
             connection.release();
             if (result.rowCount === 0){
-                throw new notFoundError('Usuario no encontrado', 404);
+                throw new Error();
             }
         }catch(error){
-            throw new Error(error.message, 500);
+            throw new notFoundError('Usuario no encontrado', 404);
         }
     }
 
