@@ -13,6 +13,16 @@ class reportsController{
         }
 
     }
+
+    async monthlyReport(req, res){
+        try{
+            const month = req.body.month
+            const result = await this.reportsService.monthlyReport(month);
+            res.status(200).json(result);
+        }catch(error){
+            res.status(500).json({ error: error.message });
+        }
+    }
 }
 
 module.exports = reportsController;

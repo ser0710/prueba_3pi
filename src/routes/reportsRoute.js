@@ -10,5 +10,6 @@ const reportsService = new ReportsService(reportsRepository);
 const reportsController = new ReportsController(reportsService);
 
 router.get('/api/v1/reports/daily', reportsController.dailyReport.bind(reportsController));
+router.get('/api/v1/reports/monthly', reportsController.monthlyReport.bind(reportsController));
 
 module.exports = router;
