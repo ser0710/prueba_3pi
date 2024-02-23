@@ -32,6 +32,17 @@ class salesController {
         }
     }
 
+    async updateSale(req, res){
+        // try{
+        //     const saleId = req.params.saleId;
+        //     const data = req.body;
+        //     await this.saleService.updateSale(saleId, data);
+        //     res.status(200).json({ message: 'Venta actualizada' });
+        // }catch(error){
+        //     res.status(500).json({ error: error.message });
+        // }
+    }
+
 }
 
 module.exports = salesController;

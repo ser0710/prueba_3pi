@@ -79,7 +79,6 @@ class usersRepository{
             const resultU = await connection.query(userQuery, [userId]);
             const user = resultU.rows[0];
             if(!user){
-                console.log("entro primer if")
                 errors.push("usuario");
             }
 
